@@ -1,28 +1,15 @@
 import React from "react";
-import { ThirdwebProvider, ConnectWallet, metamaskWallet, coinbaseWallet, rainbowWallet, rabbyWallet, zerionWallet, inAppWallet } from "@thirdweb-dev/react";
+import ThirdwebProviderComponent from "../src/Web3/Thirdweb";
+import Web3Connect from "../src/Web3/web3.connect";
 
 function App() {
   return (
-    <ThirdwebProvider 
-      clientId=""
-      supportedWallets={[
-        inAppWallet({
-          auth: {
-            options: ["google", "discord", "telegram", "farcaster", "email", "x", "passkey", "phone"],
-          },
-        }),
-        metamaskWallet(),
-        coinbaseWallet(),
-        rainbowWallet(),
-        rabbyWallet(),
-        zerionWallet(),
-      ]}
-    >
-      <div style={{ textAlign: "center", marginTop: "50px" }}>
-        <h1>Welcome to My Web3 App</h1>
-        <ConnectWallet />
+    <div>
+    
+      <Web3Connect />
+      <ThirdwebProviderComponent/>
       </div>
-    </ThirdwebProvider>
+   
   );
 }
 
